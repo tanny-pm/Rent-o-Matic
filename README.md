@@ -1,11 +1,12 @@
 # Rent-o-Matic
 
-Sample of clean architectures in Python
+Sample of the Python clean architecture app
 
 ## Installation
 
 ```sh
 $ poetry install
+$ poetry run python tools/create_db.py
 $ poetry run pytest
 ```
 
@@ -13,11 +14,21 @@ $ poetry run pytest
 
 ### CLI
 
+MemRepo
+
 ```sh
-$ ./cli.py
+$ poetry run python cli.py
+```
+
+SqliteRepo
+
+```sh
+$ poetry run python cli_sqlite.py
 ```
 
 ### REST API
+
+MemRepo
 
 ```sh
 $ poetry shell
