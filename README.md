@@ -47,3 +47,7 @@ https://www.thedigitalcatbooks.com/pycabook-introduction/
 Source
 
 https://github.com/pycabook/rentomatic
+
+The Clean Architecture
+
+https://blog.tai2.net/the_clean_architecture.html
