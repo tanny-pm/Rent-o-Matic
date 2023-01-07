@@ -1,7 +1,7 @@
 import pytest
-from rentomatic.repository.memrepo import MemRepo
 
 from rentomatic.domain.room import Room
+from rentomatic.repository.memrepo import MemRepo
 
 
 @pytest.fixture
@@ -42,5 +42,14 @@ def test_repository_list_without_parameters(room_dicts):
     repo = MemRepo(room_dicts)
 
     rooms = [Room.from_dict(i) for i in room_dicts]
+
+    assert repo.list() == rooms
+
+
+def test_repository_add(room_dicts):
+    repo = MemRepo(room_dicts[0:3])
+
+    rooms = [Room.from_dict(i) for i in room_dicts]
+    repo.add(room_dicts[3])
 
     assert repo.list() == rooms

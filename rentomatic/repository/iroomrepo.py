@@ -6,5 +6,10 @@ from rentomatic.domain.room import Room
 class IRoomRepo(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def list(self) -> list[Room]:
-        """すべての部屋のリストを返す"""
+        """Get list of all Rooms"""
+        pass
+
+    @abc.abstractmethod
+    def add(self, room: Room) -> int:
+        """Add a new Room"""
         pass
