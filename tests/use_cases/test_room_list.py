@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 
 from rentomatic.domain.room import Room
-from rentomatic.use_cases.room_list import room_list_use_case
+from rentomatic.use_cases.room_list import room_list_use_case, room_price_all_use_case
 
 
 @pytest.fixture
@@ -52,3 +52,13 @@ def test_room_list_without_parameters(domain_rooms):
 
     repo.list.assert_called_with()
     assert result == domain_rooms
+
+
+def test_room_price_all(domain_rooms):
+    repo = mock.Mock()
+    repo.list.return_value = domain_rooms
+
+    result = room_price_all_use_case(repo)
+
+    repo.list.assert_called_with()
+    assert result == 213
