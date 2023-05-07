@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from rentomatic.repository.memrepo import MemRepo
-from rentomatic.use_cases.room_list import room_list_use_case
+from rentomatic.use_cases.room_list import room_list_use_case, room_price_all_use_case
 
 rooms = [
     {
@@ -36,5 +36,7 @@ rooms = [
 
 repo = MemRepo(rooms)
 result = room_list_use_case(repo)
-
 print([room.to_dict() for room in result])
+
+total_price = room_price_all_use_case(repo)
+print(f"total: {total_price}")

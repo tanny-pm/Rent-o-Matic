@@ -9,14 +9,14 @@ class SqliteRepo(IRoomRepo):
         conn = sqlite3.connect(dbname)
         self.cur = conn.cursor()
 
-    def list(self):
+    def list(self) -> list[Room]:
         self.cur.execute("SELECT code, size, price, longitude, latitude FROM room")
         rooms = []
         for row in self.cur:
             rooms.append(Room(str(row[0]), row[1], row[2], row[3], row[4]))
         return rooms
 
-    def add(self, room):
+    def add(self, room: dict) -> int:
         self.cur.execute(
             f"""
             INSERT INTO room VALUES(

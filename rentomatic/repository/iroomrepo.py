@@ -10,6 +10,6 @@ class IRoomRepo(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def add(self, room: Room) -> int:
+    def add(self, room: dict) -> int:
         """Add a new Room"""
         pass
